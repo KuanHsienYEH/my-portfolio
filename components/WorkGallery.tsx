@@ -37,16 +37,16 @@ const OTHER_WORKS = [
     description:
       'Full-stack job platform supporting CRUD operations for job postings and user management. Implements OAuth-based authentication and React Hook Form for data validation.',
     tags: ['React', 'TypeScript', 'MUI', 'Next.js', 'Docker', 'GitHub Actions'],
-    href: 'https://github.com/KuanHsienYEH',
-    github: 'https://github.com/KuanHsienYEH',
+    href: null,
+    github: null,
   },
   {
     title: 'Automation Agent (OpenClaw)',
     description:
       'Automated job aggregation and notification system. Collects and filters job listings based on custom keywords, delivering real-time updates via Telegram.',
     tags: ['OpenAI API', 'Telegram Bot', 'Node.js'],
-    href: 'https://github.com/KuanHsienYEH',
-    github: 'https://github.com/KuanHsienYEH',
+    href: null,
+    github: null,
   },
 ];
 
@@ -184,15 +184,19 @@ export function WorkGallery() {
                       <GitHubIcon />
                     </a>
                   )}
-                  <a href={w.href} target="_blank" rel="noopener noreferrer" className="hover:text-kh-accent transition-colors">
-                    <ExternalIcon />
-                  </a>
+                  {w.href && (
+                    <a href={w.href} target="_blank" rel="noopener noreferrer" className="hover:text-kh-accent transition-colors">
+                      <ExternalIcon />
+                    </a>
+                  )}
                 </div>
               </div>
               <h4 className="text-base font-semibold text-foreground mb-2">
-                <a href={w.href} target="_blank" rel="noopener noreferrer" className="hover:text-kh-accent transition-colors">
-                  {w.title}
-                </a>
+                {w.href ? (
+                  <a href={w.href} target="_blank" rel="noopener noreferrer" className="hover:text-kh-accent transition-colors">
+                    {w.title}
+                  </a>
+                ) : w.title}
               </h4>
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">{w.description}</p>
               <ul className="flex flex-wrap gap-3 mt-4 font-mono text-xs text-muted-foreground">

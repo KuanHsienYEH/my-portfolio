@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { LINKS } from '@/lib/constants';
 
 const NAV = [
   { label: '01. Work',       href: '#work' },
@@ -34,7 +35,7 @@ export function Header() {
           <Separator orientation="vertical" className="mx-2 h-4" />
 
           <a
-            href="https://github.com/KuanHsienYEH"
+            href={LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-2 font-mono text-xs text-muted-foreground hover:text-kh-accent transition-colors"
@@ -42,7 +43,7 @@ export function Header() {
             GitHub ↗
           </a>
           <a
-            href="https://www.linkedin.com/in/software-engineer-khyeh/"
+            href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1 inline-flex items-center px-4 py-1.5 font-mono text-xs border border-kh-accent text-kh-accent rounded hover:bg-kh-accent/10 transition-colors"

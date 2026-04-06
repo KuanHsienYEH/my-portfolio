@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const EXP = [
   {
@@ -61,13 +62,13 @@ export function Experience() {
           <li key={e.id}>
             <button
               onClick={() => setActive(e.id)}
-              className={[
+              className={cn(
                 'w-full text-left px-5 py-4 font-mono text-sm transition-all duration-150',
                 'border-l-2 -ml-px',
                 active === e.id
                   ? 'border-l-kh-accent text-kh-accent bg-kh-accent/5'
                   : 'border-l-transparent text-muted-foreground hover:text-kh-accent hover:bg-kh-accent/5',
-              ].join(' ')}
+              )}
             >
               {e.company}
             </button>

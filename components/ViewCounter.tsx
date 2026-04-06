@@ -15,15 +15,15 @@ async function getViews() {
 
 async function ViewsBadge() {
   const data = await getViews();
-  if (!data) return <span className="text-xs text-white/45">views: —</span>;
+  if (!data) return <span className="text-xs text-muted-foreground">views: —</span>;
   return (
-    <span className="text-xs text-white/45">views: {data.views.toLocaleString()}</span>
+    <span className="text-xs text-muted-foreground">views: {data.views.toLocaleString()}</span>
   );
 }
 
 export function ViewCounter() {
   return (
-    <Suspense fallback={<span className="text-xs text-white/45">views: …</span>}>
+    <Suspense fallback={<span className="text-xs text-muted-foreground">views: …</span>}>
       <ViewsBadge />
     </Suspense>
   );

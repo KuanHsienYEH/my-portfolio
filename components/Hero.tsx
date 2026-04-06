@@ -1,5 +1,6 @@
 import { buttonVariants } from '@/lib/button-variants';
 import { cn } from '@/lib/utils';
+import { LINKS } from '@/lib/constants';
 
 export function Hero() {
   return (
@@ -40,7 +41,7 @@ export function Hero() {
 
         <div className="flex gap-5 mt-1">
           <a
-            href="https://github.com/KuanHsienYEH"
+            href={LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-kh-accent transition-colors"
@@ -51,7 +52,7 @@ export function Hero() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/software-engineer-khyeh/"
+            href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-kh-accent transition-colors"

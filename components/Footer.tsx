@@ -1,10 +1,12 @@
+import { LINKS } from '@/lib/constants';
+
 export function Footer() {
   return (
     <footer className="container mt-8 pb-12">
       <div className="border-t border-border/40 pt-8 flex flex-col items-center gap-3 text-center">
         <div className="flex gap-6 text-muted-foreground">
           <a
-            href="https://github.com/KuanHsienYEH"
+            href={LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-kh-accent transition-colors"
@@ -15,7 +17,7 @@ export function Footer() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/software-engineer-khyeh/"
+            href={LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-kh-accent transition-colors"
