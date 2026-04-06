@@ -1,25 +1,58 @@
 import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
+import { ThemeToggle } from '@/components/ThemeToggle';
+
+const NAV = [
+  { label: '01. Work',       href: '#work' },
+  { label: '02. Exp',        href: '#experience' },
+  { label: '03. Skills',     href: '#skills' },
+  { label: '04. Contact',    href: '#contact' },
+];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-black/20 backdrop-blur">
-      <div className="container flex h-14 items-center justify-between">
-        <Link href="/" className="font-semibold tracking-tight">
-          KH Yeh
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/85 backdrop-blur-xl transition-all">
+      <div className="container flex h-16 items-center justify-between">
+        <Link
+          href="/"
+          className="font-mono text-sm text-kh-accent hover:opacity-80 transition-opacity"
+        >
+          &lt;KuanYeh /&gt;
         </Link>
-        <nav className="flex items-center gap-4 text-sm text-white/70">
-          <a href="#work" className="hover:text-white">Work</a>
-          <a href="#experience" className="hover:text-white">Exp</a>
-          <a href="#skills" className="hover:text-white">Skills</a>
-          <a href="#contact" className="hover:text-white">Contact</a>
+
+        <nav className="flex items-center gap-0.5 text-sm">
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="px-3 py-2 font-mono text-xs text-muted-foreground hover:text-kh-accent transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+
+          <Separator orientation="vertical" className="mx-2 h-4" />
+
           <a
             href="https://github.com/KuanHsienYEH"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white"
+            className="px-3 py-2 font-mono text-xs text-muted-foreground hover:text-kh-accent transition-colors"
           >
             GitHub ↗
           </a>
+          <a
+            href="https://www.linkedin.com/in/software-engineer-khyeh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-1 inline-flex items-center px-4 py-1.5 font-mono text-xs border border-kh-accent text-kh-accent rounded hover:bg-kh-accent/10 transition-colors"
+          >
+            LinkedIn
+          </a>
+
+          <Separator orientation="vertical" className="mx-2 h-4" />
+
+          <ThemeToggle />
         </nav>
       </div>
     </header>

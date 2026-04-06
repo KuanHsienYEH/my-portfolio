@@ -6,71 +6,69 @@ import { Skills } from '@/components/Skills';
 import { Footer } from '@/components/Footer';
 import { ViewCounter } from '@/components/ViewCounter';
 import { ContactForm } from '@/components/ContactForm';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+
+function SectionHeading({ num, title }: { num: string; title: string }) {
+  return (
+    <div className="flex items-center gap-5 mb-12">
+      <h2 className="flex items-baseline gap-2 text-2xl font-bold tracking-tight text-foreground whitespace-nowrap">
+        <span className="font-mono text-lg text-kh-accent">{num}.</span>
+        {title}
+      </h2>
+      <div className="h-px flex-1 bg-border" />
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
     <div className="min-h-dvh">
       <Header />
+
       <main>
         <Hero />
 
-        <section className="container mt-10">
-          <div className="frost rounded-2xl p-6">
-            <div className="flex items-center justify-between gap-4">
-              <h2 className="text-lg font-semibold tracking-tight" id="work">
+        {/* Work */}
+        <section id="work" className="container mt-8 mb-32">
+          <div className="flex items-center justify-between gap-4 mb-12">
+            <div className="flex items-center gap-5 flex-1">
+              <h2 className="flex items-baseline gap-2 text-2xl font-bold tracking-tight text-foreground whitespace-nowrap">
+                <span className="font-mono text-lg text-kh-accent">01.</span>
                 Work
               </h2>
-              <ViewCounter />
+              <div className="h-px flex-1 bg-border" />
             </div>
-            <p className="mt-1 text-sm text-[color:var(--muted)]">
-              Selected projects from work and side projects.
-            </p>
-            <div className="mt-6">
-              <WorkGallery />
-            </div>
+            <ViewCounter />
           </div>
+          <WorkGallery />
         </section>
 
-        <section className="container mt-10">
-          <div className="frost rounded-2xl p-6">
-            <h2 className="text-lg font-semibold tracking-tight" id="experience">
-              Experience
-            </h2>
-            <p className="mt-1 text-sm text-[color:var(--muted)]">
-              4+ years across enterprise, crypto, and e-commerce.
-            </p>
-            <div className="mt-6">
-              <Experience />
-            </div>
-          </div>
+        {/* Experience */}
+        <section id="experience" className="container py-32">
+          <SectionHeading num="02" title="Experience" />
+          <Experience />
         </section>
 
-        <section className="container mt-10">
-          <div className="frost rounded-2xl p-6">
-            <h2 className="text-lg font-semibold tracking-tight" id="skills">
-              Skills
-            </h2>
-            <p className="mt-1 text-sm text-[color:var(--muted)]">
-              A quick snapshot, with a little D3.
-            </p>
-            <div className="mt-6">
-              <Skills />
-            </div>
-          </div>
+        {/* Skills */}
+        <section id="skills" className="container py-32">
+          <SectionHeading num="03" title="Skills" />
+          <Skills />
         </section>
 
-        <section className="container mt-10">
-          <div className="frost rounded-2xl p-6">
-            <h2 className="text-lg font-semibold tracking-tight" id="contact">
-              Contact
-            </h2>
-            <p className="mt-1 text-sm text-[color:var(--muted)]">
-              Get in touch — messages go directly to my Telegram.
-            </p>
-            <div className="mt-6">
+        {/* Contact */}
+        <section id="contact" className="container py-32 mb-8">
+          <SectionHeading num="04" title="Get in Touch" />
+          <Card className="bg-card/80 backdrop-blur-sm border-border/60 max-w-2xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-lg font-mono text-kh-accent">Say Hello</CardTitle>
+              <CardDescription>
+                Messages go directly to my Telegram. I&apos;ll get back to you soon.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
               <ContactForm />
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </section>
       </main>
 

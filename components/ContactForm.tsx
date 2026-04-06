@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 export function ContactForm() {
   const [name, setName] = useState('');
@@ -21,7 +24,7 @@ export function ContactForm() {
     });
 
     if (!res.ok) {
-      const data = (await res.json().catch(() => null)) as any;
+      const data = (await res.json().catch(() => null)) as { error?: string } | null;
       setError(data?.error ?? 'Failed to send');
       setStatus('error');
       return;
@@ -34,40 +37,50 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-3 md:grid-cols-2">
-      <input
-        className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm outline-none focus:border-white/20"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <input
-        className="rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm outline-none focus:border-white/20"
-        placeholder="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <textarea
-        className="md:col-span-2 min-h-[120px] rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm outline-none focus:border-white/20"
-        placeholder="Message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        required
-      />
+    <form onSubmit={onSubmit} className="grid gap-4 md:grid-cols-2">
+      <div className="space-y-1.5">
+        <Input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="bg-card/60 border-border/60"
+        />
+      </div>
+      <div className="space-y-1.5">
+        <Input
+          placeholder="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="bg-card/60 border-border/60"
+        />
+      </div>
+      <div className="md:col-span-2 space-y-1.5">
+        <Textarea
+          placeholder="Your message…"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          rows={5}
+          className="bg-card/60 border-border/60 resize-none"
+        />
+      </div>
       <div className="md:col-span-2 flex items-center justify-between gap-3">
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="rounded-full bg-white px-4 py-2 text-sm font-medium text-black disabled:opacity-60"
+          className="inline-flex items-center px-7 py-4 font-mono text-sm border border-kh-accent text-kh-accent rounded cursor-pointer transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_var(--kh-accent)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-none"
         >
-          {status === 'sending' ? 'Sending…' : 'Send'}
+          {status === 'sending' ? 'Sending…' : 'Send Message'}
         </button>
-        <div className="text-xs text-white/55">
-          {status === 'sent' ? 'Sent.' : status === 'error' ? error : null}
-        </div>
+        {status === 'sent' && (
+          <p className="text-sm text-muted-foreground">Message sent.</p>
+        )}
+        {status === 'error' && (
+          <p className="text-sm text-destructive">{error}</p>
+        )}
       </div>
     </form>
   );
