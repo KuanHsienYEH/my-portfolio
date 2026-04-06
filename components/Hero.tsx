@@ -6,12 +6,13 @@ export function Hero() {
       <div className="frost rounded-3xl p-6 md:p-10">
         <div className="grid items-center gap-8 md:grid-cols-2">
           <div>
-            <p className="text-sm text-white/60">Portfolio</p>
+            <p className="text-sm text-white/60">Frontend Engineer</p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-              Clean design. Crisp motion.
+              Kuan Hsien (KH) Yeh
             </h1>
             <p className="mt-4 text-base text-white/70">
-              Next.js + Tailwind + D3. Apple-ish minimal, with a little depth.
+              4+ years building scalable web apps — React, Vue, TypeScript, Node.js.
+              Focused on clean UI, solid DX, and measurable performance.
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -25,6 +26,24 @@ export function Hero() {
                 href="#contact"
               >
                 Contact
+              </a>
+            </div>
+            <div className="mt-5 flex gap-4">
+              <a
+                href="https://github.com/KuanHsienYEH"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white/45 hover:text-white/80"
+              >
+                GitHub ↗
+              </a>
+              <a
+                href="https://www.linkedin.com/in/software-engineer-kh-yeh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-white/45 hover:text-white/80"
+              >
+                LinkedIn ↗
               </a>
             </div>
           </div>

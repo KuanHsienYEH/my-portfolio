@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "/usr/local/bin/node",
+      "runtimeArgs": ["/Users/jar-cheesheen/Desktop/Kuan/Code/my-portfolio/node_modules/.bin/next", "dev"],
+      "port": 3000
+    }
+  ]
+}

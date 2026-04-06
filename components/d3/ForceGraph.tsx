@@ -7,24 +7,28 @@ type Node = { id: string; group: number };
 type Link = { source: string; target: string };
 
 const NODES: Node[] = [
+  { id: 'React', group: 1 },
   { id: 'Next.js', group: 1 },
   { id: 'TypeScript', group: 1 },
-  { id: 'Tailwind', group: 1 },
-  { id: 'D3', group: 2 },
-  { id: 'UI', group: 2 },
-  { id: 'DX', group: 3 },
-  { id: 'Performance', group: 3 },
-  { id: 'Design', group: 4 },
+  { id: 'Vue.js', group: 2 },
+  { id: 'Nuxt.js', group: 2 },
+  { id: 'Node.js', group: 3 },
+  { id: 'Python', group: 3 },
+  { id: 'C#', group: 3 },
+  { id: 'D3', group: 4 },
+  { id: 'Azure', group: 4 },
 ];
 
 const LINKS: Link[] = [
-  { source: 'Next.js', target: 'TypeScript' },
-  { source: 'Next.js', target: 'Tailwind' },
-  { source: 'D3', target: 'UI' },
-  { source: 'UI', target: 'Design' },
-  { source: 'DX', target: 'TypeScript' },
-  { source: 'Performance', target: 'Next.js' },
-  { source: 'D3', target: 'Next.js' },
+  { source: 'React', target: 'Next.js' },
+  { source: 'React', target: 'TypeScript' },
+  { source: 'Vue.js', target: 'Nuxt.js' },
+  { source: 'TypeScript', target: 'Vue.js' },
+  { source: 'Node.js', target: 'React' },
+  { source: 'Node.js', target: 'Python' },
+  { source: 'C#', target: 'Node.js' },
+  { source: 'D3', target: 'React' },
+  { source: 'Azure', target: 'Node.js' },
 ];
 
 export function ForceGraph() {

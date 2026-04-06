@@ -1,11 +1,16 @@
 import { Suspense } from 'react';
 
 async function getViews() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/api/views`, {
-    cache: 'no-store',
-  });
-  if (!res.ok) return null;
-  return (await res.json()) as { views: number };
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '');
+  try {
+    const res = await fetch(`${base}/api/views`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return (await res.json()) as { views: number };
+  } catch {
+    return null;
+  }
 }
 
 async function ViewsBadge() {
