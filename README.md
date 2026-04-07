@@ -31,7 +31,3 @@ Recommended storage (prod): **Upstash Redis**
 - `UPSTASH_REDIS_REST_TOKEN`
 
 If Upstash is not configured (e.g. local dev), it falls back to an in-memory counter.
-
-## Legacy (old CRA version)
-
-The previous React (CRA) implementation is kept under `legacy-src/` for reference.
