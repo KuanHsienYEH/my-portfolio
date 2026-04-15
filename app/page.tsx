@@ -30,7 +30,7 @@ export default function HomePage() {
 
         {/* Experience + Education */}
         <RevealOnScroll>
-          <section id="experience" className="container py-24">
+          <section id="experience" className="container py-16">
             <SectionHeading num="01" title="Experience" />
             <div className="grid gap-14 lg:grid-cols-[minmax(0,2fr)_320px] lg:items-start">
               <Experience />
@@ -43,7 +43,7 @@ export default function HomePage() {
 
         {/* Skills */}
         <RevealOnScroll>
-          <section id="skills" className="container py-24">
+          <section id="skills" className="container py-16">
             <SectionHeading num="02" title="Skills" />
             <Skills />
           </section>
@@ -51,7 +51,7 @@ export default function HomePage() {
 
         {/* Work */}
         <RevealOnScroll>
-          <section id="work" className="container py-24">
+          <section id="work" className="container py-16">
             <SectionHeading num="03" title="Work" />
             <WorkGallery />
           </section>
@@ -59,7 +59,7 @@ export default function HomePage() {
 
         {/* Contact */}
         <RevealOnScroll>
-          <section id="contact" className="container py-24 pb-16">
+          <section id="contact" className="container py-16 pb-16">
             <SectionHeading num="04" title="Get in Touch" />
             <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-start max-w-4xl">
               {/* Left — info */}
