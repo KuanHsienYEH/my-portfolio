@@ -1,29 +1,30 @@
 import { Suspense } from 'react';
+import { Redis } from '@upstash/redis';
 
-async function getViews() {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '');
+const KEY = 'portfolio:views';
+
+async function fetchViews(): Promise<number | null> {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
   try {
-    const res = await fetch(`${base}/api/views`, { cache: 'no-store' });
-    if (!res.ok) return null;
-    return (await res.json()) as { views: number };
+    const redis = new Redis({ url, token });
+    const v = await redis.incr(KEY);
+    return typeof v === 'number' ? v : Number(v);
   } catch {
     return null;
   }
 }
 
 async function ViewsBadge() {
-  const data = await getViews();
-  if (!data) return <span className="text-xs text-muted-foreground">views: —</span>;
-  return (
-    <span className="text-xs text-muted-foreground">Visitors: {data.views.toLocaleString()}</span>
-  );
+  const views = await fetchViews();
+  if (views === null) return null;
+  return <span>{views.toLocaleString()} visitors</span>;
 }
 
 export function ViewCounter() {
   return (
-    <Suspense fallback={<span className="text-xs text-muted-foreground">Visitors: …</span>}>
+    <Suspense fallback={<span>… visitors</span>}>
       <ViewsBadge />
     </Suspense>
   );

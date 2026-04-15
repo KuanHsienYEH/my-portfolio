@@ -1,7 +1,6 @@
-import { buttonVariants } from '@/lib/button-variants';
-import { cn } from '@/lib/utils';
 import { LINKS } from '@/lib/constants';
 import { Download } from "lucide-react";
+import { StatCounter } from '@/components/StatCounter';
 
 
 export function Hero() {
@@ -13,17 +12,17 @@ export function Hero() {
     <div className="absolute left-0 bottom-0 h-[250px] w-[250px] rounded-full bg-white/5 blur-3xl" />
   </div>
 
-  <section className="container pt-28 pb-24 lg:pt-36 lg:pb-32">
+  <section className="container pt-28 pb-24 lg:pt-36 lg:pb-16">
     <div className="max-w-5xl">
       <p className="font-mono text-sm tracking-[0.2em] text-kh-accent uppercase">
         Frontend Engineer / React / Performance
       </p>
 
       <div className="mt-6 space-y-4">
-        <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-foreground leading-[1.05] sm:text-6xl lg:text-7xl">
+        <h1 className="max-w-4xl text-5xl font-semibold tracking-tight leading-[1.05] sm:text-6xl lg:text-7xl bg-gradient-to-r from-foreground via-foreground/90 to-[#00BFFF] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,191,255,0.25)]">
           Kuan Yeh
         </h1>
-        <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-foreground leading-[1.05] sm:text-6xl lg:text-7xl ">
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground/80 leading-[1.1] sm:text-5xl lg:text-5xl">
           I build products that scale.
         </h1>
 
@@ -41,7 +40,7 @@ export function Hero() {
         </div>
       </div>
 
-      <p className="mt-8 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+      <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
 I’m Kuan Yeh, a frontend engineer with 7+ years of experience building scalable web applications. I focus on React, performance, and clean architecture.      </p>
 
       <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -63,13 +62,7 @@ I’m Kuan Yeh, a frontend engineer with 7+ years of experience building scalabl
         </a>
       </div>
 
-      <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-        <span>7+ years experience</span>
-        <span className="hidden h-1 w-1 rounded-full bg-muted-foreground/40 sm:inline-block" />
-        <span>React / TypeScript / Next.js</span>
-        <span className="hidden h-1 w-1 rounded-full bg-muted-foreground/40 sm:inline-block" />
-        <span>Performance / UI Architecture / Scalable Frontend</span>
-      </div>
+      <StatCounter />
 
       <div className="mt-10 flex gap-5">
         <a

@@ -3,6 +3,9 @@ import './globals.css';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { CursorSpotlight } from '@/components/CursorSpotlight';
+import { ScrollProgress } from '@/components/ScrollProgress';
+import { BackToTop } from '@/components/BackToTop';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
 
@@ -17,7 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable} suppressHydrationWarning>
       <body className={cn('min-h-screen antialiased')}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <ScrollProgress />
+          <CursorSpotlight />
+          <BackToTop />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

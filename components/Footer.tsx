@@ -29,11 +29,13 @@ export function Footer() {
             </svg>
           </a>
         </div>
-        <span className="font-mono text-xs text-muted-foreground">
-          <p>Designed &amp; Built by Kuan Yeh  |  <ViewCounter /> </p>    
-        </span>
-        <p className="font-mono text-xs text-muted-foreground opacity-60">
-          Next.js · Tailwind · shadcn/ui · D3
+        <p className="font-mono text-xs text-muted-foreground">
+          Designed &amp; Built by Kuan Yeh
+        </p>
+        <p className="font-mono text-xs text-muted-foreground/50 flex items-center gap-2">
+          <span>Next.js · Tailwind · shadcn/ui · D3</span>
+          <span>·</span>
+          <ViewCounter />
         </p>
       </div>
     </footer>

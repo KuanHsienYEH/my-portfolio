@@ -166,6 +166,29 @@
 
 
 
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.76 0.17 218 / 0.4);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.76 0.17 218 / 0.75);
+}
+
+/* ── Scroll reveal ── */
+.kh-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kh-reveal.kh-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /*  animate  */
 .marquee-track {
   overflow: hidden;
